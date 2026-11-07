@@ -7,7 +7,9 @@ android {
     namespace = "com.lovlop.gwangjubustaja2"
     // 37: 템플릿의 androidx.core 1.19.0이 compileSdk 37 이상을 요구 (36.1이면 빌드 실패). targetSdk는 36 유지.
     compileSdk {
-        version = release(37)
+        version = release(37) {
+            minorApiLevel = 1
+        }
     }
 
     defaultConfig {
