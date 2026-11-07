@@ -5,68 +5,83 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F6F8"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:gravity="left"
-        android:orientation="vertical"
-        android:layout_marginLeft="15dp">
-        
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="광주버스타자"
-            android:textStyle="bold"
-            android:textSize="25sp"/>
-
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:padding="16dp"
+        android:text="광주 버스 타자"
+        android:textColor="#111111"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/gray"/>
+        android:background="#DDDFE3" />
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvChat"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="vertical"
-        android:background="@color/lightgray">
+        android:clipToPadding="false"
+        android:padding="16dp" />
 
-    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/gray"/>
+        android:background="#DDDFE3" />
 
+    <!-- 3. 하단 입력 영역 -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="8dp">
+        android:padding="12dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#F0F1F3"
+            app:cardCornerRadius="26dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp">
 
         <EditText
+            android:id="@+id/etInput"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginRight="10dp"
-            android:padding="12dp"
-            android:background="@drawable/edit_bg"
-            android:hint="정류소나 목적지를 입력하세요"
-            android:textColorHint="#555555"/>
+            android:background="@android:color/transparent"
+            android:hint="정류소 ID 입력 (1234, empty, error, slow)"
+            android:textColor="#111111"
+            android:imeOptions="actionSend"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textSize="14sp" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:text="전송"
-            android:textSize="16sp"
-            android:backgroundTint="#2d70eb"/>
-    </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSend"
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:layout_marginStart="10dp"
+        android:backgroundTint="#2F72EA"
+        android:text="전송"
+        android:textColor="#FFFFFF"
+        app:cornerRadius="26dp" />
 
 </LinearLayout>
+
+    </LinearLayout>
