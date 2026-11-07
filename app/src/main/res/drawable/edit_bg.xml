@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    챗봇 입력창 배경. pill 모양.
+
+    radius를 입력창 높이의 절반 이상으로 주면 양끝이 완전한 반원이 된다.
+    높이가 48dp이므로 24dp. 높이를 바꾸면 radius도 같이 올릴 것.
+
+    ⚠️ EditText에 android:background를 지정하면 기본 밑줄과 포커스 색이 사라진다.
+       그래서 selector로 포커스 상태를 직접 그려준다.
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 입력 중 -->
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/input_bg" />
+            <stroke
+                android:width="2dp"
+                android:color="@color/input_stroke_focused" />
+            <corners android:radius="24dp" />
+        </shape>
+    </item>
+
+    <!-- 평상시 -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/input_bg" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/input_stroke" />
+            <corners android:radius="24dp" />
+        </shape>
+    </item>
+
+</selector>

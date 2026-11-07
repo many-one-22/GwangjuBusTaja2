@@ -5,4 +5,7 @@
     <color name="blue">#2d70eb</color>
     <color name="lightgray">#eeeeee</color>
     <color name="gray">#aaaaaa</color>
+    <color name="input_bg">#FFFFFF</color>
+    <color name="input_stroke">#E0E0E0</color>
+    <color name="input_stroke_focused">#2196F3</color>
 </resources>
