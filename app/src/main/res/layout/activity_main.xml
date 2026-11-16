@@ -61,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
-            android:hint="정류소 ID 입력 (1234, empty, error, slow)"
+            android:hint="정류소 번호 입력 (예: KJB908)"
             android:textColor="#111111"
             android:imeOptions="actionSend"
             android:inputType="text"
