@@ -24,6 +24,10 @@ interface StationDao {
     @Query("SELECT * FROM station WHERE :keyword != '' AND name LIKE '%' || :keyword || '%' ORDER BY name")
     suspend fun searchByName(keyword: String): List<Station>
 
+    /** 정류소 기둥 번호로 정확히 찾기. 같은 이름이 여러 개일 때 사용자가 번호로 지목한다. */
+    @Query("SELECT * FROM station WHERE no = :no")
+    suspend fun findByNo(no: String): List<Station>
+
     @Query("SELECT COUNT(*) FROM station")
     suspend fun count(): Int
 }
@@ -43,7 +47,7 @@ interface BusRouteDao {
 
 // version = 테이블 구조 버전. 엔티티에 필드를 추가하면 1 올려야 한다(2주차).
 // exportSchema = false: 스키마 기록 파일은 지금 필요 없다.
-@Database(entities = [Station::class, BusRoute::class], version = 1, exportSchema = false)
+@Database(entities = [Station::class, BusRoute::class], version = 2, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun stationDao(): StationDao
     abstract fun busRouteDao(): BusRouteDao

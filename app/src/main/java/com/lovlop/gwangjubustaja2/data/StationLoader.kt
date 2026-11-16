@@ -17,3 +17,14 @@ suspend fun loadStationsIfEmpty(dao: StationDao, fetch: suspend () -> List<Stati
     dao.insertAll(stations)
     return stations.size
 }
+
+/**
+ * 노선 목록도 같은 방식으로 적재한다. (loadStationsIfEmpty와 같은 모양)
+ * @return 이번에 넣은 개수. 이미 있어서 건너뛰면 0.
+ */
+suspend fun loadRoutesIfEmpty(dao: BusRouteDao, fetch: suspend () -> List<BusRoute>): Int {
+    if (dao.count() > 0) return 0
+    val routes = fetch()
+    dao.insertAll(routes)
+    return routes.size
+}

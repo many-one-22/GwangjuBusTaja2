@@ -15,6 +15,10 @@ data class Station(
     // String인 이유: API가 주는 ID에 문자나 앞자리 0이 섞여 있어도 그대로 보존하려고.
     @PrimaryKey val stationId: String,
     val name: String,
+    // 정류소 기둥에 적힌 번호(예: "5382"). /stations 응답의 no.
+    // 같은 이름 정류소가 도로 양쪽·인근에 여러 개라 이름만으로는 못 고른다. 그때 이 번호로 지목한다.
+    // String인 이유는 stationId와 같다. API가 안 주는 경우가 있어 nullable.
+    val no: String? = null,
 )
 
 /** 버스 노선. routeNo는 화면·챗봇에 보이는 노선 번호, routeId는 API가 쓰는 내부 ID. */
