@@ -1,0 +1,13 @@
+{
+  "name": "gwangju-bus-sync",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "node --test test/sync.test.js"
+  },
+  "devDependencies": {
+    "wrangler": "^4.139.0"
+  }
+}

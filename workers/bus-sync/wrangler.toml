@@ -1,0 +1,11 @@
+name = "gwangju-bus-sync"
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+
+[triggers]
+crons = ["0 18 * * *"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "gwangju-bus"
+database_id = "25fcd627-b973-432d-a5f0-8c6e972906df"
